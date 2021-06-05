@@ -6,6 +6,9 @@ For simplicity there are some shortcuts, so don't assume this is production read
 ## Build and debug
 
 ``` powershell
+# install requirements for local development
+pip install -r requirements.txt
+
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
