@@ -1,5 +1,7 @@
 # Django Factory
 
+<img alt="Old factory" height="150px" src="docs/images/old_factory.jpg">
+
 Simple project for demonstrating useful core functionality of django.
 For simplicity there are some shortcuts, so don't assume this is production ready code.
 
