@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Factory Machines{% endblock %}
+
+{% block content %}
+    <div class="p-4 w-100">
+        {% if machine_list %}
+        <table class="table table-bordered">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for machine in machine_list %}
+                <tr>
+                    <td>{{ machine.id }}</td>
+                    <td>{{ machine.name }}</td>
+                    <td><img height="20px" src="/{{ MEDIA_URL }}{{  machine.image }}" ></td>
+                    <td><a href="/machines/{{ machine.id }}/">Details</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No machines are available.</p>
+        {% endif %}
+    </div>
+   
+{% endblock %}

@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  django-factory:
+    image: django-factory
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 8000:8000
+      - 5678:5678
