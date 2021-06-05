@@ -23,6 +23,17 @@
                 "runserver"
             ],
             "django": true
+        },
+        {
+            "name": "Python: Machine Tests",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\manage.py",
+            "args": [
+                "test",
+                "machines"
+            ],
+            "django": true
         }
     ]
 }
