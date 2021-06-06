@@ -10,7 +10,7 @@
             "host": "localhost",
             "pathMappings": [{
                 "localRoot": "${workspaceFolder}",
-                "remoteRoot": "/"
+                "remoteRoot": "/app/"
             }],
             "preLaunchTask": "Docker Restart",
         },

@@ -11,15 +11,13 @@ FROM python:alpine
 LABEL Name=django-factory Version=0.0.1
 EXPOSE 8000
 
-WORKDIR /
-ADD . /
-
-# Using pip:
-RUN python3 -m pip install -r requirements.txt
-
 # Install ptvsd (the debugger) into the container
 RUN python3 -m pip install ptvsd 
 
+ADD . /app/
+WORKDIR /app/
+# Using pip:
+RUN python3 -m pip install -r requirements.txt
 # First line below launches the debug server and listens on port 5678
 # Second line starts django in development mode after the debugger attaches
 CMD ["python3", "-m", "ptvsd", "--host", "0.0.0.0", "--port", "5678", "--wait", \

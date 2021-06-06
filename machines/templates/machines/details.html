@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Factory Machines{% endblock %}
+
+{% block content %}
+    <div class="p-4 w-100">
+        <form method="GET">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Machine name</label>
+                <input type="name" name="name" value="{{ machine.name }}" class="form-control" id="name">
+            </div>
+        </form>    
+    </div>
+{% endblock %}
