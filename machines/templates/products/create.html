@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Factory Products{% endblock %}
+
+{% block content %}
+
+    <div class="p-4 w-100">
+        <h5 class="mb-3">Form auto rendering, see more on<a target="_blank" href="https://docs.djangoproject.com/en/3.2/topics/forms/#the-template">Django.com</a> </h5>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>       
+        <h5 class="mb-3">Form custom rendering</h5> 
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+                <span class="text-danger">{{ form.name.errors }}</span>
+            </div>               
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>  
+        <h5 class="mb-3">Form full custom rendering</h5> 
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                <input class="form-control" name="{{ form.name.html_name }}" type="text">
+                <span class="text-danger">{{ form.name.errors }}</span>
+            </div>               
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>     
+    </div>
+    
+</div>
+    
+{% endblock %}

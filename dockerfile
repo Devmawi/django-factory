@@ -12,13 +12,14 @@ LABEL Name=django-factory Version=0.0.1
 EXPOSE 8000
 
 # Install ptvsd (the debugger) into the container
-RUN python3 -m pip install ptvsd 
+# RUN python3 -m pip install ptvsd 
+# Using pip:
+# RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install Django==3.2.4 ptvsd pytz==2018.5
 
 ADD . /app/
 WORKDIR /app/
-# Using pip:
-RUN python3 -m pip install -r requirements.txt
 # First line below launches the debug server and listens on port 5678
 # Second line starts django in development mode after the debugger attaches
-CMD ["python3", "-m", "ptvsd", "--host", "0.0.0.0", "--port", "5678", "--wait", \
+CMD ["python3", "-m", "ptvsd", "--host", "0.0.0.0", "--port", "5678", "--wait-for-client", \
     "manage.py", "runserver", "--noreload", "--nothreading", "0.0.0.0:8000"]

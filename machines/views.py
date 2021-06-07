@@ -1,4 +1,4 @@
-from machines.forms import MachineForm
+from machines.forms import MachineForm, ProductForm
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 
@@ -35,3 +35,8 @@ def create(request: HttpRequest):
         if machineForm.is_valid():
             machineForm.save()
         return redirect("/machines/")
+
+def create_product(request:HttpRequest):
+    form = ProductForm(request.GET or request.POST)
+    form.add_error('name', 'ERROR')
+    return render(request, 'products/create.html', { 'form': form })
