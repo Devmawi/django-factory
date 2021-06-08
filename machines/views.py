@@ -17,6 +17,7 @@ def index(request):
 
 @login_required(login_url='/admin/login/')
 def details(request: HttpRequest, id:int):
+    
     machine = get_object_or_404(models.Machine, pk=id)
     return render(request, 'machines/details.html', { 'machine': machine })
 

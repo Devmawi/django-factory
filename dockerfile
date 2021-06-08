@@ -15,11 +15,11 @@ EXPOSE 8000
 # RUN python3 -m pip install ptvsd 
 # Using pip:
 # RUN python3 -m pip install -r requirements.txt
-RUN python3 -m pip install Django==3.2.4 ptvsd pytz==2018.5
+ADD requirements.txt /requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
-ADD . /app/
 WORKDIR /app/
 # First line below launches the debug server and listens on port 5678
 # Second line starts django in development mode after the debugger attaches
-CMD ["python3", "-m", "ptvsd", "--host", "0.0.0.0", "--port", "5678", "--wait-for-client", \
+CMD ["python3", "-m", "debugpy", "--listen", "0.0.0.0:5678", "--log-to-stderr", "--wait-for-client", \
     "manage.py", "runserver", "--noreload", "--nothreading", "0.0.0.0:8000"]

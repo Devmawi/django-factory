@@ -7,10 +7,12 @@
             "type": "python",
             "request": "attach",
             "port": 5678,
+            "django": true,
+            "jinja": true,
             "host": "localhost",
             "pathMappings": [{
                 "localRoot": "${workspaceFolder}",
-                "remoteRoot": "/app/"
+                "remoteRoot": "."
             }],
             "preLaunchTask": "Docker Restart",
         },
