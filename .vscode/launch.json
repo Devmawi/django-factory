@@ -24,6 +24,7 @@
             "args": [
                 "runserver"
             ],
+            
             "django": true
         },
         {
