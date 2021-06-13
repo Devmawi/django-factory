@@ -88,11 +88,12 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql', # django.db.backends.postgresql_psycopg2
-        'NAME': 'Test', # case sensitive
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'NAME': 'postgres', # case sensitive
+        'USER': '####',
+        'PASSWORD': '####',
+        'HOST': '####.postgres.database.azure.com', #localhost
         'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'}, # important
         # 'CREATE_DB': True, only for oracle databases
     }
 }
