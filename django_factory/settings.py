@@ -82,11 +82,18 @@ WSGI_APPLICATION = 'django_factory.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# https://djangocentral.com/using-postgresql-with-django/
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', # django.db.backends.postgresql_psycopg2
+        'NAME': 'Test', # case sensitive
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        # 'CREATE_DB': True, only for oracle databases
     }
 }
 
